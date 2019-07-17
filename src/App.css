@@ -49,6 +49,11 @@
   padding: 10px 30px;
 }
 
+.btn:disabled {
+  background-color: #c0c0c0;
+  color: #ffffff;
+}
+
 .btn:last-child {
   margin: 0;
 }
