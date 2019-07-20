@@ -1,13 +1,13 @@
 const defaultState = {
-    text: 'hola'
+    text: ''
 };
 
-function reducer (state = defaultState, { type, data }) {
+function reducer (state = defaultState, { type, text }) {
     switch (type) {
 
         case 'update':
             return {
-                text: data
+                text
             };
 
         default:
