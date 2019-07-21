@@ -94,8 +94,7 @@ class Highlighter extends React.Component {
 
 function mapStateToProps (state) {
     return {
-        text: state.form.text,
-        bla: state.highlighter
+        text: state.form.text
     };
 }
 
