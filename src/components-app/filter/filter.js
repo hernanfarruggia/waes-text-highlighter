@@ -1,27 +1,25 @@
 // Libraries
 import React from 'react';
 import { connect } from 'react-redux';
-import FilterActions from '../../redux/actions/filter';
 
 // Components
 import Button from '../../components-ui/button';
 
+// Actions
+import { FILTER_ACTIONS, setFilter } from './filter-actions';
+
 class Filter extends React.Component {
 
-    constructor (props) {
-        super(props);
+    constructor () {
+        super();
 
-        this.colors = {
-            green: 'green',
-            red: 'red',
-            yellow: 'yellow'
-        };
-
+        // Bind methods
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick (color) {
-        this.props.setFilter(color);
+    // handleClick receives a string type value and calls the action to set the filter
+    handleClick (type) {
+        this.props.setFilter(type);
     }
 
     render () {
@@ -29,15 +27,18 @@ class Filter extends React.Component {
             <div className="block">
                 <div className="colors">
                     <Button
-                        onClick={ () => this.handleClick(this.colors.red) }
+                        active={ this.props.filter.red }
+                        onClick={ () => this.handleClick(FILTER_ACTIONS['SET_FILTER_RED']) }
                         text="Red"
                         type="red" />
                     <Button
-                        onClick={ () => this.handleClick(this.colors.yellow) }
+                        active={ this.props.filter.yellow }
+                        onClick={ () => this.handleClick(FILTER_ACTIONS['SET_FILTER_YELLOW']) }
                         text="Yellow"
                         type="yellow" />
                     <Button
-                        onClick={ () => this.handleClick(this.colors.green) }
+                        active={ this.props.filter.green }
+                        onClick={ () => this.handleClick(FILTER_ACTIONS['SET_FILTER_GREEN']) }
                         text="Green"
                         type="green" />
                 </div>
@@ -48,6 +49,7 @@ class Filter extends React.Component {
         );
     }
 
+    // renderFilters checks for items for each color and returns a node with filtered results
     renderFilters () {
         let green = null,
             red = null,
@@ -91,9 +93,9 @@ class Filter extends React.Component {
 
         return (
             <div className="text">
-                { green }
                 { red }
                 { yellow }
+                { green }
             </div>
         );
     }
@@ -109,7 +111,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        setFilter: (type) => dispatch(FilterActions.filter(type))
+        setFilter: (type) => dispatch(setFilter(type))
     };
 }
 

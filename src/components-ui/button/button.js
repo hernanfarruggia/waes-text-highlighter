@@ -28,6 +28,10 @@ class Button extends React.PureComponent {
             classNames.push(this.btnTypes[this.props.type]);
         }
 
+        if (this.props.active) {
+            classNames.push('active');
+        }
+
         return {
             className: classNames.join(' '),
             disabled: this.props.disabled,
@@ -37,6 +41,7 @@ class Button extends React.PureComponent {
 }
 
 Button.propTypes = {
+    active: PropTypes.bool,
     disabled: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
@@ -44,6 +49,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+    active: false,
     diasbled: false
 }
 

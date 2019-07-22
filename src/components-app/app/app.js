@@ -4,7 +4,7 @@ import React from 'react';
 // Components
 import { Provider } from 'react-redux';
 import store from '../../redux/store'
-import Form from '../../components-ui/form';
+import Form from '../../components-app/form';
 import Highlighter from '../../components-app/highlighter';
 import Filter from '../../components-app/filter';
 

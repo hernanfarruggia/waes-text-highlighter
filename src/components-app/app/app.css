@@ -63,12 +63,27 @@
   color: #ffffff;
 }
 
+.red.active {
+  background-color: #cf5f5f;
+  border: 1px solid #7a0808;
+}
+
 .yellow {
   background-color: #f0d800;
   color: #000000;
 }
 
+.yellow.active {
+  background-color: #f7ee9d;
+  border: 1px solid #c4b000;
+}
+
 .green {
   background-color: #157c00;
   color: #ffffff;
+}
+
+.green.active {
+  background-color: #5aa84a;
+  border: 1px solid #126302;
 }

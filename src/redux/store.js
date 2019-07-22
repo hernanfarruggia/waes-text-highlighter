@@ -2,9 +2,9 @@
 import { createStore, combineReducers } from 'redux';
 
 // Reducers
-import filter from './reducers/filter';
-import form from './reducers/form';
-import highlighter from './reducers/highlighter';
+import filter from '../components-app/filter/filter-reducer';
+import form from '../components-app/form/form-reducer';
+import highlighter from '../components-app/highlighter/highlighter-reducer';
 
 
 const reducer = combineReducers({

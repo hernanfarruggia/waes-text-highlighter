@@ -1,30 +1,32 @@
+// Define default initial state
 const defaultState = {
-    green: [],
-    red: [],
-    yellow: []
+    green: false,
+    red: false,
+    yellow: false
 };
 
-function reducer (state = defaultState, { type, text }) {
-    switch (type) {
-        case 'addGreen':
+function reducer (state = defaultState, action) {
+    switch (action.type) {
+
+        case 'SET_FILTER_GREEN':
             return {
-                green: [...state.green, text],
+                green: !state.green,
                 red: state.red,
                 yellow: state.yellow
             };
 
-        case 'addRed':
+        case 'SET_FILTER_RED':
             return {
                 green: state.green,
-                red: [...state.red ,text],
+                red: !state.red,
                 yellow: state.yellow
             };
 
-        case 'addYellow':
+        case 'SET_FILTER_YELLOW':
             return {
                 green: state.green,
                 red: state.red,
-                yellow: [...state.yellow, text]
+                yellow: !state.yellow
             };
 
         default:

@@ -1,56 +1,47 @@
 // Libraries
 import React from 'react';
 import { connect } from 'react-redux';
-import HighlighterActions from '../../redux/actions/highlighter';
 
 // Components
 import Button from '../../components-ui/button';
 
+// Actions
+import { HIGHLIGHTER_ACTIONS, addText } from './highlighter-actions';
+
 class Highlighter extends React.Component {
 
-    constructor (props) {
-        super(props);
+    constructor () {
+        super();
 
-        this.colors = {
-            green: 'green',
-            red: 'red',
-            yellow: 'yellow'
-        };
-
+        // Default highlight color to Red
         this.state = {
-            highlighter: 'red'
+            highlighter: HIGHLIGHTER_ACTIONS.ADD_RED
         };
 
-        // bind methods
+        // Bind methods
         this.setHighlighter = this.setHighlighter.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
     }
 
+    // setHighlighter keeps the highlighter color on sync by updating the state when the users change the selection
     setHighlighter (color) {
-        if (!this.state.isLogged) {
-            this.setState({
-                highlighter: color
-            });
-        }
+        this.setState({
+            highlighter: color
+        });
     }
 
+    // handleMouseUp gets executed every time the user ends a selection. It will take that selection, save it and trigger
+    // the creation of a new html span element to wrap it and apply a background color
     handleMouseUp (e) {
-        // Set actions based on colors
-        const actions = {
-            green: 'addGreen',
-            red: 'addRed',
-            yellow: 'addYellow'
-        },
-
         // Get selected text as node
-        node = document.getSelection().getRangeAt(0),
-        text = node.toString();
+        const node = document.getSelection().getRangeAt(0),
+            text = node.toString();
 
         // If there's any text in selection, then proceed
         // TODO: Check for inner html nodes in selection to avoid HTML crashes
         if (text !== '') {
             this.props.addText({
-                type: actions[this.state.highlighter],
+                type: this.state.highlighter,
                 text
             });
 
@@ -65,15 +56,18 @@ class Highlighter extends React.Component {
             <div className="block">
                 <div className="colors">
                     <Button
-                        onClick={ () => this.setHighlighter(this.colors.red) }
+                        active={ this.state.highlighter === HIGHLIGHTER_ACTIONS.ADD_RED }
+                        onClick={ () => this.setHighlighter(HIGHLIGHTER_ACTIONS.ADD_RED) }
                         text="Red"
                         type="red" />
                     <Button
-                        onClick={ () => this.setHighlighter(this.colors.yellow) }
+                        active={ this.state.highlighter === HIGHLIGHTER_ACTIONS.ADD_YELLOW }
+                        onClick={ () => this.setHighlighter(HIGHLIGHTER_ACTIONS.ADD_YELLOW) }
                         text="Yellow"
                         type="yellow" />
                     <Button
-                        onClick={ () => this.setHighlighter(this.colors.green) }
+                        active={ this.state.highlighter === HIGHLIGHTER_ACTIONS.ADD_GREEN }
+                        onClick={ () => this.setHighlighter(HIGHLIGHTER_ACTIONS.ADD_GREEN) }
                         text="Green"
                         type="green" />
                 </div>
@@ -84,9 +78,16 @@ class Highlighter extends React.Component {
         );
     }
 
+    // createHTMLElement gets a HTML node as param, creates a new span, and wrap the node with it to apply background color as selected. 
     createHTMLElement (node) {
-        const span = document.createElement('span');
-        span.className = this.colors[this.state.highlighter];
+        const colorsMap = {
+                ADD_RED: 'red',
+                ADD_YELLOW: 'yellow',
+                ADD_GREEN: 'green'
+            },
+            span = document.createElement('span');
+
+        span.className = colorsMap[this.state.highlighter];
         node.surroundContents(span);
     }
 
@@ -100,7 +101,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        addText: (options) => dispatch(HighlighterActions.add(options)) 
+        addText: (text) => dispatch(addText(text)) 
     };
 }
 

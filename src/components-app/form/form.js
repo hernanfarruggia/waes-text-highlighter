@@ -1,37 +1,38 @@
 // Libraries
 import React from 'react';
 import { connect } from 'react-redux';
-import FormActions from '../../redux/actions/form';
 
 // Components
-import Button from '../button';
+import Button from '../../components-ui/button';
+
+// Actions
+import { updateText } from './form-actions';
 
 class Form extends React.Component {
     
     constructor () {
         super();
     
+        // Set initial text to empty
         this.state = {
             text: ''
         };
     
+        // Bind methods
         this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
         this.handleTextUpdate = this.handleTextUpdate.bind(this);
     }
     
+    // handleTextAreaChange updates the text state on every textarea change event
     handleTextAreaChange (e) {
         this.setState({
             text: e.target.value
         });
     }
     
+    // handleTextUpdate uses the text state and pass it to the action textUpdate, then clear the textarea
     handleTextUpdate () {
-        const options = {
-            type: 'update',
-            text: this.state.text
-        };
-
-        this.props.textUpdate(options);
+        this.props.textUpdate(this.state.text);
 
         this.setState({
             text: ''
@@ -65,7 +66,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        textUpdate: (options) => dispatch(FormActions.update(options))
+        textUpdate: (options) => dispatch(updateText(options))
     };
 };
 
