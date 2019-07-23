@@ -6,6 +6,7 @@ This project is an app that allows you to set a text, highlight it with differen
 
 ### How to install the repo
 
+- You will need to have installed [NodeJS](https://nodejs.org/es/download/) and [NPM](https://www.npmjs.com/get-npm) in order to run this project. Once you have them, please continue with instructions.
 - Clone the repo in the desire location
     - [git@github.com:hernanfarruggia/waes-text-highlighter.git](git@github.com:hernanfarruggia/waes-text-highlighter.git)
 - Open the project folder in your command line:
