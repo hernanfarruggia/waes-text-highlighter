@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Waes Text Highglighter
 
-## Available Scripts
+### Description
 
-In the project directory, you can run:
+This project is an app that allows you to set a text, highlight it with different colors, store those highlights and display them filtered by color.
 
-### `npm start`
+### How to install the repo
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone the repo in the desire location
+    - [git@github.com:hernanfarruggia/waes-text-highlighter.git](git@github.com:hernanfarruggia/waes-text-highlighter.git)
+- Open the project folder in your command line:
+    - `$ cd waes-text-highlighter`
+- Install required dependencies
+    - `$ npm install`
+- Run the application dev server
+    - `$ npm start`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Now the app should be working and a chrome windows should start to show the app.
 
-### `npm test`
+### How it works
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Lets start by taking a look at the general layout:
+    - ![General Layout](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/1.png)
+- You will have a Form, where you will introduce your text, a middle section or the Highlighter area where you can select your text and apply colors, and the las section is the Filter, where you can select the colors and the app will show you the text fragmens you have selected.
 
-### `npm run build`
+- The first thing you need to do is to introduce some text and hit the button `Add Text`, you will notice when the Textarea is empty, the button is disabled. Here you have a Lorem Ipsum fragment to make it easier:
+    > Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - ![Form with text](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/2.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Once you clicked the `Add Text` button, you will see the Textarea is cleaned up and the text will appear in the Highlighter area:
+    - ![Highlighter area with text](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/3.png)
+- Once you are there, you can start switching the colors and selecting text. The text will be ihghlighted with the selected color as soon as you end your selection. By default, the initial color is `red`.
+    - ![Selected text](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/4.png)
+- Once you finished with all your selections, you can start filtering your results, by clicking the buttons in the Filter area. You can toggle the results by color, or even select all of them at the same time:
+    - ![Ony red results](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/5.png)
+    - ![Ony yellow results](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/6.png)
+    - ![Ony green results](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/7.png)
+    - ![All results](https://github.com/hernanfarruggia/waes-text-highlighter/master/extras/8.png)

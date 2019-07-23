@@ -1,3 +1,4 @@
+// Libraries
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -21,6 +22,7 @@ class Button extends React.PureComponent {
         );
     }
 
+    // getButtonProps will return an object with all props needed by the button
     getButtonProps () {
         const classNames = ['btn'];
 
