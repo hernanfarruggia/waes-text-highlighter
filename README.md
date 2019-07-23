@@ -44,14 +44,8 @@ Now the app should be working and a chrome windows should start to show the app.
 - Once you finished with all your selections, you can start filtering your results, by clicking the buttons in the Filter area. You can toggle the results by color, or even select all of them at the same time:
     - ![Ony red results](https://github.com/hernanfarruggia/waes-text-highlighter/blob/master/extras/5.png)
 
-- - -
-
     - ![Ony yellow results](https://github.com/hernanfarruggia/waes-text-highlighter/blob/master/extras/6.png)
 
-- - -
-
     - ![Ony green results](https://github.com/hernanfarruggia/waes-text-highlighter/blob/master/extras/7.png)
-
-- - -
 
     - ![All results](https://github.com/hernanfarruggia/waes-text-highlighter/blob/master/extras/8.png)
